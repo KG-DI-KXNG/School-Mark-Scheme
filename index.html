@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/assets/css/style.css" />
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css" />
+		<title>Student Reward Tracker</title>
+	</head>
+	<body>
+		<nav>
+			<div class="navbar">
+				<div id="brand">
+					<a href="#!">Student Reward System</a>
+				</div>
+				<div>
+					<a href="#!">View Students</a>
+					<a href="#!">Manage Students</a>
+				</div>
+			</div>
+		</nav>
+
+		<div class="grid">
+			<div class="grid-item students-sec">
+				<section class="section">
+					<header>
+						<h2 class="card-header">Students</h2>
+						<p class="card-subheader">All students and their respective stars</p>
+					</header>
+					<ul class="student-wrapper">
+						<!-- Example Output -->
+						<!-- <li class="student">
+							<div class="student-name">@Roshane-Johnson</div>
+							<div class="stars">
+								<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+								><i class="fas fa-star"></i>
+							</div>
+						</li> -->
+					</ul>
+				</section>
+			</div>
+			<div class="grid-item">
+				<div class="grid-item">
+					<section class="section">
+						<header>
+							<h2>Add Student</h2>
+						</header>
+						<form action="/api/student.php" method="post">
+							<div class="form-group">
+								<div class="form-item">
+									<label for="studentNameC">Student Name</label>
+									<input type="text" name="studentNameC" required />
+								</div>
+								<div class="form-item">
+									<label for="studentStarsC">Student Stars</label>
+									<select name="studentStarsC">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+									</select>
+								</div>
+								<div class="form-item button">
+									<input type="hidden" name="studentIdC" />
+									<div class="form-item"><button type="submit" name="send_c" style="background-color: mediumseagreen">Create</button></div>
+								</div>
+							</div>
+						</form>
+					</section>
+				</div>
+				<div class="grid-item" style="margin-top: var(--grid-gap)">
+					<section class="section">
+						<header>
+							<h2>Update Student</h2>
+						</header>
+						<form action="/api/student.php" method="post">
+							<div class="form-group">
+								<div class="form-item">
+									<label for="studentNameU">Student Name</label>
+									<select name="studentNameU">
+										<!-- <option value="name_1">name_1</option> -->
+									</select>
+								</div>
+								<div class="form-item">
+									<label for="studentStarsU">Student Stars</label>
+									<select name="studentStarsU">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+									</select>
+								</div>
+								<div class="form-item button">
+									<div class="form-item"><button type="submit" name="send_u" style="background-color: orange">Update</button></div>
+								</div>
+							</div>
+						</form>
+					</section>
+				</div>
+				<div class="grid-item" style="margin-top: var(--grid-gap)">
+					<section class="section">
+						<header>
+							<h2>Delete Student</h2>
+						</header>
+						<form action="/api/student.php" method="post">
+							<div class="form-item">
+								<label for="studentNameD">Student Name</label>
+								<select name="studentNameD">
+									<!-- <option value="name_1">name_1</option> -->
+								</select>
+							</div>
+							<div class="form-item button">
+								<div class="form-item"><button type="submit" name="send_d" style="background-color: firebrick">Delete</button></div>
+							</div>
+						</form>
+					</section>
+				</div>
+			</div>
+		</div>
+		<script src="/assets/js/app.js"></script>
+	</body>
+</html>
