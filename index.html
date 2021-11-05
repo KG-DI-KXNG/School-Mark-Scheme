@@ -15,8 +15,8 @@
 					<a href="#!">Student Reward System</a>
 				</div>
 				<div>
-					<a href="#!">View Students</a>
-					<a href="#!">Manage Students</a>
+					<a href="https://github.com/Roshane-Johnson"><i class="fab fa-github"></i>Roshane-Johnson</a>
+					<a href="https://twitter.com/kendrip_"><i class="fab fa-twitter"></i>Kendrip_</a>
 				</div>
 			</div>
 		</nav>
@@ -46,11 +46,11 @@
 						<header>
 							<h2>Add Student</h2>
 						</header>
-						<form action="/api/student.php" method="post">
+						<div>
 							<div class="form-group">
 								<div class="form-item">
 									<label for="studentNameC">Student Name</label>
-									<input type="text" name="studentNameC" required />
+									<input type="text" name="studentNameC" id="studentName" required="" />
 								</div>
 								<div class="form-item">
 									<label for="studentStarsC">Student Stars</label>
@@ -68,11 +68,10 @@
 									</select>
 								</div>
 								<div class="form-item button">
-									<input type="hidden" name="studentIdC" />
-									<div class="form-item"><button type="submit" name="send_c" style="background-color: mediumseagreen">Create</button></div>
+									<div class="form-item"><button name="send_c" style="background-color: mediumseagreen">Create</button></div>
 								</div>
 							</div>
-						</form>
+						</div>
 					</section>
 				</div>
 				<div class="grid-item" style="margin-top: var(--grid-gap)">
@@ -80,7 +79,7 @@
 						<header>
 							<h2>Update Student</h2>
 						</header>
-						<form action="/api/student.php" method="post">
+						<div>
 							<div class="form-group">
 								<div class="form-item">
 									<label for="studentNameU">Student Name</label>
@@ -107,7 +106,7 @@
 									<div class="form-item"><button type="submit" name="send_u" style="background-color: orange">Update</button></div>
 								</div>
 							</div>
-						</form>
+						</div>
 					</section>
 				</div>
 				<div class="grid-item" style="margin-top: var(--grid-gap)">
@@ -115,7 +114,7 @@
 						<header>
 							<h2>Delete Student</h2>
 						</header>
-						<form action="/api/student.php" method="post">
+						<div>
 							<div class="form-item">
 								<label for="studentNameD">Student Name</label>
 								<select name="studentNameD">
@@ -125,11 +124,21 @@
 							<div class="form-item button">
 								<div class="form-item"><button type="submit" name="send_d" style="background-color: firebrick">Delete</button></div>
 							</div>
-						</form>
+						</div>
 					</section>
 				</div>
 			</div>
 		</div>
-		<script src="/assets/js/app.js"></script>
+		<footer>
+			<div class="footer">
+				<div class="copyright">&copy; Copyright 2021 - 2021</div>
+				<div class="credits">
+					Made in <img src="/assets/images/jamaica.svg" width="20" /> with
+					<i class="fas fa-heart" style="color: firebrick; fill: firebrick"></i>
+					by <span class="author">Roshane Johnson</span>
+				</div>
+			</div>
+		</footer>
+		<script type="module" src="/assets/js/app.js"></script>
 	</body>
 </html>

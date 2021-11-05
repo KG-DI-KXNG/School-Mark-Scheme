@@ -34,6 +34,11 @@ nav {
 	color: white;
 	text-decoration: none;
 	margin-right: -5px;
+	align-items: center;
+}
+
+.navbar a i {
+	margin-right: 5px;
 }
 
 .navbar a:hover {
@@ -118,6 +123,22 @@ nav {
 	padding: 0.5rem;
 	justify-self: self-end;
 	cursor: pointer;
+}
+
+/* Footer */
+footer {
+	background-color: #212121;
+	padding: 1rem 0;
+}
+
+.footer {
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: auto;
+	color: white;
+	font-size: 14px;
 }
 
 /* FontAwesome Overwrites */

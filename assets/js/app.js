@@ -1,53 +1,68 @@
-let json = new String();
+import { renderUsers, updateJSON } from "./functions.js";
+
+let createStudentBtn = document.querySelector('[name="send_c"]');
+let updateStudentBtn = document.querySelector('[name="send_u"]');
+let deleteStudentBtn = document.querySelector('[name="send_d"]');
+let newStudent;
 
 fetch("assets/json/students.json")
 	.then((response) => response.json())
-	.then((data) => {
-		json = data.students;
-		renderUsers(json);
+	.then((json) => {
+		renderUsers(json.students);
 	});
 
-function renderUsers(jsonData) {
-	// Set StudentID
-	document.querySelector('[name="studentIdC"]').value = jsonData.length + 1;
+createStudentBtn.onclick = (e) => {
+	let studentNameC = document.querySelector('[name="studentNameC"]').value;
+	let studentStarsC = Number(document.querySelector('[name="studentStarsC"]').value);
 
-	jsonData.forEach((data) => {
-		// Element Selection
-		let studentWrapper = document.querySelector(".student-wrapper");
-		let studentNameU = document.querySelector('[name="studentNameU"]');
-		let studentNameD = document.querySelector('[name="studentNameD"]');
+	if (studentNameC == "" || studentNameC == null) {
+		alert("Student name can't be empty");
+		e.preventDefault();
+	} else {
+		let newStudentJson = { name: studentNameC, stars: studentStarsC };
+		fetch("assets/json/students.json")
+			.then((response) => response.json())
+			.then((json) => {
+				json.students.push(newStudentJson);
+				newStudent = JSON.stringify(json);
+			})
+			.then(() => updateJSON(newStudent));
+	}
+};
 
-		// Element Creation
-		let student = document.createElement("li");
-		let studentName = document.createElement("div");
-		let studentStars = document.createElement("div");
-		let studentStar = document.createElement("i");
-		let studentNameU_Options = document.createElement("option");
-		let studentNameD_Options = document.createElement("option");
+updateStudentBtn.onclick = () => {
+	let studentNameDropdown = document.querySelector('[name="studentNameU"]');
+	let studentStarsU = Number(document.querySelector('[name="studentStarsU"]').value);
+	let selectedIndex = studentNameDropdown.selectedIndex;
+	let studentNameU = studentNameDropdown.options[selectedIndex].text;
 
-		// Render Users & Stars from JSON
-		student.setAttribute("class", "student");
-		studentName.setAttribute("class", "student-name");
-		studentStars.setAttribute("class", "stars");
-		studentStar.setAttribute("class", "fas fa-star");
+	let newJSON;
+	fetch("assets/json/students.json")
+		.then((response) => response.json())
+		.then((json) => {
+			let userIndex = json.students.findIndex((student) => student.name == studentNameU);
+			json.students[userIndex].stars = studentStarsU;
+			newJSON = JSON.stringify(json);
+		})
+		.then(() => updateJSON(newJSON));
+};
 
-		Array(Number(data.stars))
-			.fill(studentStar)
-			.forEach((star) => {
-				studentStars.innerHTML += star.outerHTML;
-			});
-		studentName.textContent = data.name;
-		student.innerHTML = studentName.outerHTML += studentStars.outerHTML;
-		studentWrapper.innerHTML += student.outerHTML;
+deleteStudentBtn.onclick = (e) => {
+	let studentNameDropdown = document.querySelector('[name="studentNameD"]');
+	let selectedIndex = studentNameDropdown.selectedIndex;
+	let studentNameD = studentNameDropdown.options[selectedIndex].text;
 
-		// Update User Dropdown List
-		studentNameU_Options.setAttribute("value", data.id);
-		studentNameU_Options.textContent = data.name;
-		studentNameU.innerHTML += studentNameU_Options.outerHTML;
+	let newJSON;
 
-		// Delete User Dropdown List
-		studentNameD_Options.setAttribute("value", data.id);
-		studentNameD_Options.textContent = data.name;
-		studentNameD.innerHTML += studentNameD_Options.outerHTML;
-	});
-}
+	if (confirm(`Are you sure you want to delete ${studentNameD}?`)) {
+		fetch("assets/json/students.json")
+			.then((response) => response.json())
+			.then((json) => {
+				let userIndex = json.students.findIndex((student) => student.name == studentNameD);
+				json.students.splice(userIndex, 1);
+				newJSON = JSON.stringify(json);
+			})
+			.then(() => updateJSON(newJSON));
+		return;
+	}
+};
