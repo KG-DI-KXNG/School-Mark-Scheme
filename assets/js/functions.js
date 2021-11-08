@@ -49,6 +49,7 @@ function updateJSON(jsonString, debug = false) {
 		body: json,
 	}).then((resp) => {
 		debug ? console.log(resp) : null;
+		location.reload();
 	});
 }
 
