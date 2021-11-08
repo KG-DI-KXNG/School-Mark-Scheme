@@ -5,11 +5,17 @@ let updateStudentBtn = document.querySelector('[name="send_u"]');
 let deleteStudentBtn = document.querySelector('[name="send_d"]');
 let newStudent;
 
-fetch("assets/json/students.json")
-	.then((response) => response.json())
-	.then((json) => {
-		renderUsers(json.students);
-	});
+(function init(callback = () => {}) {
+	fetch("assets/json/students.json")
+		.then((response) => response.json())
+		.then((json) => {
+			renderUsers(json.students);
+		});
+
+	document.querySelector('[name="studentNameC"]').value = null;
+	document.querySelectorAll("select").forEach((item) => (item.value = 1));
+	callback();
+})();
 
 createStudentBtn.onclick = (e) => {
 	let studentNameC = document.querySelector('[name="studentNameC"]').value;
@@ -54,15 +60,28 @@ deleteStudentBtn.onclick = (e) => {
 
 	let newJSON;
 
-	if (confirm(`Are you sure you want to delete ${studentNameD}?`)) {
-		fetch("assets/json/students.json")
-			.then((response) => response.json())
-			.then((json) => {
-				let userIndex = json.students.findIndex((student) => student.name == studentNameD);
-				json.students.splice(userIndex, 1);
-				newJSON = JSON.stringify(json);
-			})
-			.then(() => updateJSON(newJSON));
-		return;
-	}
+	Swal.fire({
+		title: "Are you sure?",
+		text: `You want to delete ${studentNameD}!`,
+		icon: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#3085d6",
+		cancelButtonColor: "#d33",
+		confirmButtonText: "Yes, delete it!",
+	}).then((result) => {
+		if (result.isConfirmed) {
+			Swal.fire("Deleted!", "Your file has been deleted.", "success");
+			setTimeout(() => {
+				fetch("assets/json/students.json")
+					.then((response) => response.json())
+					.then((json) => {
+						let userIndex = json.students.findIndex((student) => student.name == studentNameD);
+						json.students.splice(userIndex, 1);
+						newJSON = JSON.stringify(json);
+					})
+					.then(() => updateJSON(newJSON));
+			}, 1000);
+			return;
+		}
+	});
 };
