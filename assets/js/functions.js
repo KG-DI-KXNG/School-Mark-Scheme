@@ -44,7 +44,7 @@ function updateJSON(jsonString, debug = false) {
 	let json = new FormData();
 	json.set("json", jsonString);
 	json.set("update_json", null);
-	fetch("/api/student.php", {
+	fetch("./api/student.php", {
 		method: "POST",
 		body: json,
 	}).then((resp) => {

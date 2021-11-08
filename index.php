@@ -18,6 +18,7 @@
 				</div>
 				<div>
 					<a href="https://github.com/Roshane-Johnson"><i class="fab fa-github"></i>Roshane-Johnson</a>
+					<a href="https://github.com/KG-DI-KING"><i class="fab fa-github"></i>KG-DI-KING</a>
 					<a href="https://twitter.com/kendrip_"><i class="fab fa-twitter"></i>Kendrip_</a>
 				</div>
 			</div>
