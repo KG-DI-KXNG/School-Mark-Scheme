@@ -25,7 +25,7 @@ function renderUsers(jsonData) {
 				studentStars.innerHTML += star.outerHTML;
 			});
 		studentName.textContent = data.name;
-		student.innerHTML = studentName.outerHTML += studentStars.outerHTML;
+		student.innerHTML = studentName.innerHTML += studentStars.outerHTML;
 		studentWrapper.innerHTML += student.outerHTML;
 
 		// Update User Dropdown List
