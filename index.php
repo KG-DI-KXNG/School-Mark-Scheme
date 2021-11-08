@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/assets/css/style.css" />
+		<link rel="stylesheet" href="./assets/css/style.css" />
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css" />
 		<script src="./assets/js/sweetalert2.all.min.js"></script>
 		<title>Student Reward Tracker</title>
@@ -135,12 +135,12 @@
 			<div class="footer">
 				<div class="copyright">&copy; Copyright 2021 - 2021</div>
 				<div class="credits">
-					Made in <img src="/assets/images/jamaica.svg" width="20" /> with
+					Made in <img src="./assets/images/jamaica.svg" width="20" /> with
 					<i class="fas fa-heart" style="color: firebrick; fill: firebrick"></i>
 					by <span class="author">Roshane Johnson</span>
 				</div>
 			</div>
 		</footer>
-		<script type="module" src="/assets/js/app.js"></script>
+		<script type="module" src="./assets/js/app.js"></script>
 	</body>
 </html>
