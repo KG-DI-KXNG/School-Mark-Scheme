@@ -57,13 +57,13 @@ nav {
 .grid-item.students-sec {
 	grid-row: span 2;
 	overflow-y: scroll;
-	height: 605px;
+	min-height: 605px;
 	border-radius: 0.3rem;
 	background-color: rgb(235, 235, 235);
 }
 
 .grid-item.students-sec .section {
-	height: 100%;
+	height: 500px;
 }
 
 .section {
@@ -77,12 +77,21 @@ nav {
 
 .student {
 	list-style-type: none;
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	padding: 1rem;
+	background-color: #ffffff;
+	margin-bottom: 1rem;
+	border-radius: 0.3rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 10%);
 }
 
 .student-name {
-	font-weight: bold;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+#text {
+	margin-bottom: 0.5rem;
 }
 
 .card-header {

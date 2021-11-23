@@ -53,7 +53,7 @@ updateStudentBtn.onclick = () => {
 		.then(() => updateJSON(newJSON));
 };
 
-deleteStudentBtn.onclick = (e) => {
+deleteStudentBtn.onclick = () => {
 	let studentNameDropdown = document.querySelector('[name="studentNameD"]');
 	let selectedIndex = studentNameDropdown.selectedIndex;
 	let studentNameD = studentNameDropdown.options[selectedIndex].text;
@@ -70,7 +70,7 @@ deleteStudentBtn.onclick = (e) => {
 		confirmButtonText: "Yes, delete it!",
 	}).then((result) => {
 		if (result.isConfirmed) {
-			Swal.fire("Deleted!", "Your file has been deleted.", "success");
+			Swal.fire("Deleted!", "Student has been deleted.", "success");
 			setTimeout(() => {
 				fetch("assets/json/students.json")
 					.then((response) => response.json())

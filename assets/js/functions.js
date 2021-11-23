@@ -24,8 +24,8 @@ function renderUsers(jsonData) {
 			.forEach((star) => {
 				studentStars.innerHTML += star.outerHTML;
 			});
-		studentName.textContent = data.name;
-		student.innerHTML = studentName.innerHTML += studentStars.outerHTML;
+		studentName.textContent = `[${data.stars}] ${data.name}`;
+		student.innerHTML = studentName.outerHTML += studentStars.outerHTML;
 		studentWrapper.innerHTML += student.outerHTML;
 
 		// Update User Dropdown List

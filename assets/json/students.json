@@ -1,1 +1,3 @@
-{"students":[{"name":"Roshane Johnson","stars":3},{"name":"John Doe","stars":4},{"name":"Jane Doe","stars":5}]}
+{
+	"students": [{ "name": "Laud Malia", "stars": 1 }]
+}
