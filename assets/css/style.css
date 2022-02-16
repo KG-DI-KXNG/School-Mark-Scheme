@@ -57,13 +57,13 @@ nav {
 .grid-item.students-sec {
 	grid-row: span 2;
 	overflow-y: scroll;
-	min-height: 605px;
+	max-height: 605px;
 	border-radius: 0.3rem;
 	background-color: rgb(235, 235, 235);
 }
 
 .grid-item.students-sec .section {
-	height: 500px;
+	height: 100%;
 }
 
 .section {
@@ -82,7 +82,7 @@ nav {
 	background-color: #ffffff;
 	margin-bottom: 1rem;
 	border-radius: 0.3rem;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 10%);
+	box-shadow: 7px 7px 0px 0px rgba(0 0 0 / 10%);
 }
 
 .student-name {
